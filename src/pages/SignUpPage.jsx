@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Eye, EyeOff, Lock, MessageSquare, User } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, MessageSquare, User } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore"
+import { Link } from "react-router-dom";
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +39,7 @@ const SignUpPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-medium">Full Name</span>
+                            <span className="label-text font-medium">Nome completo</span>
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -105,6 +106,30 @@ const SignUpPage = () => {
                                 )}
                             </button>
                         </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="btn btn-primary w-full"
+                        disabled={isSigningUp}
+                    >
+                        {isSigningUp ? (
+                            <>
+                                <Loader2 className="size-5 animate-spin" />
+                                Carregando...
+                            </>
+                        ) : (
+                            "Criar Conta"
+                        )}
+                    </button>
+
+                    <div className="text-center">
+                        <p className="text-base-content/60">
+                            Já possui conta? {" "}
+                            <Link to="/login" className="link link-primary">
+                                Fazer login
+                            </Link>
+                        </p>
                     </div>
 
                 </form>
