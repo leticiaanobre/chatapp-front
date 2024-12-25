@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Eye, EyeOff, Loader2, Lock, MessageSquare, User } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore"
 import { Link } from "react-router-dom";
+import AuthImagePattern from "../components/AuthImagePattern";
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -124,16 +125,23 @@ const SignUpPage = () => {
                         )}
                     </button>
 
-                    <div className="text-center">
-                        <p className="text-base-content/60">
-                            Já possui conta?{" "}
-                            <Link to="/login" className="link link-primary">
-                                Fazer login
-                            </Link>
-                        </p>
-                    </div>
                 </form>
+
+                <div className="text-center">
+                    <p className="text-base-content/60">
+                        Já possui conta?{" "}
+                        <Link to="/login" className="link link-primary">
+                            Fazer login
+                        </Link>
+                    </p>
+                </div>
             </div>
+
+            {/* Right side */}
+
+            <AuthImagePattern 
+                title="Junte-se a nossa comunidade"
+                subtitle="Conete-se com amigos, compartilhe momentos e entre em contato com quem você mais ama."/>
         </div>
 
     )
