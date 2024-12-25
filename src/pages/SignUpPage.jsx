@@ -36,8 +36,9 @@ const SignUpPage = () => {
                     </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="form-control">
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-md">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text font-medium">Nome completo</span>
                         </label>
@@ -57,7 +58,7 @@ const SignUpPage = () => {
                         </div>
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text font-medium">Email</span>
                         </label>
@@ -77,7 +78,7 @@ const SignUpPage = () => {
                         </div>
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text font-medium">Senha</span>
                         </label>
@@ -98,7 +99,7 @@ const SignUpPage = () => {
                                 type="button"
                                 className="absolute inset-y-0 right-0 pr-3 flex items-center"
                                 onClick={() => setShowPassword(!showPassword)}
-                                >
+                            >
                                 {showPassword ? (
                                     <EyeOff className="size-5 text-base-content/40" />
                                 ) : (
@@ -125,17 +126,16 @@ const SignUpPage = () => {
 
                     <div className="text-center">
                         <p className="text-base-content/60">
-                            Já possui conta? {" "}
+                            Já possui conta?{" "}
                             <Link to="/login" className="link link-primary">
                                 Fazer login
                             </Link>
                         </p>
                     </div>
-
                 </form>
-
             </div>
         </div>
+
     )
 }
 
