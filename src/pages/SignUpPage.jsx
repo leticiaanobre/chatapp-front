@@ -19,13 +19,13 @@ const SignUpPage = () => {
         if (!formData.fullName.trim()) return toast.error("Nome completo é obrigatório")
         if (!formData.email.trim()) return toast.error("Nome completo é obrigatório")
         if (!/\S+@\S+\.\S+/.test(formData.email)) return toast.error("Formato de email inválido")
-        if (!formData.password.trim()) return toast.error("Senha é obrigatória")
-        if (formData.password.length < 6) return toast.error("Senha deve conter pelo menos 6 caracteres")
+        if (!formData.password.trim()) return toast.error("A senha é obrigatória")
+        if (formData.password.length < 6) return toast.error("A senha deve conter pelo menos 6 caracteres")
 
-            return true
+        return true
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         const success = validateForm()
