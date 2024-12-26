@@ -141,7 +141,7 @@ const SignUpPage = () => {
 
                 </form>
 
-                <div className="text-center">
+                <div className="text-center mt-4">
                     <p className="text-base-content/60">
                         Já possui conta?{" "}
                         <Link to="/login" className="link link-primary">
