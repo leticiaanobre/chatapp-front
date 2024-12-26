@@ -27,7 +27,7 @@ const Navbar = () => {
               <>
                 <Link to={"/profile"} className={`btn btn-sm gap-2 transition-colors`}>
                   <User className="size-5"/>
-                  <span className="hidden sm:inline">Logout</span>
+                  <span className="hidden sm:inline">Perfil</span>
                 </Link>
 
                 <button className="flex gap-2 items-center" onClick={logout}>
