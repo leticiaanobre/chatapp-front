@@ -61,7 +61,7 @@ const ProfilePage = () => {
               </label>
             </div>
             <p className="text-sm text-zinc-400">
-              {isUpdatingProfile ? "Importando..." : "Clique na c^amera para atualizar sua foto"}
+              {isUpdatingProfile ? "Importando..." : "Clique na câmera para atualizar sua foto"}
             </p>
           </div>
 
