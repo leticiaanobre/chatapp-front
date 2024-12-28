@@ -91,7 +91,11 @@ export const useAuthStore = create((set, get) => ({
 
         if(!authUser || get().socket?.connected) return //if user is not authenticated or already connected, dont make the connection
 
-        const socket = io(BASE_URL)
+        const socket = io(BASE_URL, {
+            query: {
+                userId: authUser._id
+            }
+        })
         socket.connect()
 
         set({socket: socket})
