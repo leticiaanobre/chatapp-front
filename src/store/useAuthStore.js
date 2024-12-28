@@ -99,6 +99,11 @@ export const useAuthStore = create((set, get) => ({
         socket.connect()
 
         set({socket: socket})
+
+        //listening this event when loged in, and gettin the userId to update to onlineUsers
+        socket.on("getOnlineUsers", (userIds) => {
+            set({onlineUsers: userIds})
+        })
     },
     disconnectSocket: () => {
         if(get().socket?.connected) get().socket.disconnect()
