@@ -29,7 +29,7 @@ const ChatContainer = () => {
 
   useEffect(() => {
     if (messageEndRef.current && messages) {
-      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" }); //scroll to messages last sent on the chat
     }
   }, [messages]);
 
