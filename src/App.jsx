@@ -29,7 +29,7 @@ const App = () => {
     </div>
   )
   return (
-    <div data-theme={theme}>
+    <div data-theme={theme} className="h-full">
       <Navbar/> 
       <Routes>
         <Route path="/" element={authUser ? <HomePage/> : <Navigate to="/login"/>} />
