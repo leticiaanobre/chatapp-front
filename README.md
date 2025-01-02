@@ -3,6 +3,8 @@
 A real-time chat application that allows users to communicate seamlessly with real-time messaging and secure authentication.
 
 ![Imagem do Projeto](./src//assets//Community.png)
+![Imagem do Projeto](./src//assets//Community2.png)
+![Imagem do Projeto](./src//assets//Community3.png)
 
 ## Features
 
