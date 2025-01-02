@@ -7,16 +7,24 @@ import { Users } from "lucide-react";
 const Sidebar = () => {
   const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
 
-  const { onlineUsers } = useAuthStore();
+  const { onlineUsers, authUser } = useAuthStore();
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
+  const [searchUsers, setSearchUsers] = useState("");
 
   useEffect(() => {
     getUsers();
   }, [getUsers]);
 
-  const filteredUsers = showOnlineOnly
-    ? users.filter((user) => onlineUsers.includes(user._id))
-    : users;
+
+  const filteredUsers = users
+    .filter((user) => (showOnlineOnly ? onlineUsers.includes(user._id) : true))
+    .filter((user) => {
+      if (user.fullName && searchUsers) {
+        return user.fullName.toLowerCase().includes(searchUsers.toLowerCase());
+      }
+
+      return true // Retorna todos os usuários se não houver `searchUsers`
+    });
 
   if (isUsersLoading) return <SidebarSkeleton />;
 
@@ -26,6 +34,26 @@ const Sidebar = () => {
         <div className="flex items-center gap-2">
           <Users className="size-6" />
           <span className="font-medium hidden lg:block">Contatos</span>
+        </div>
+
+        {/* User profile section */}
+        <div className="flex items-center gap-2 mt-2">
+          <div className="relative mx-auto lg:mx-0">
+              <img
+                src={authUser?.profilePic || "/avatar.png"}
+                alt={authUser?.fullName || "Usuário"}
+                className="size-14 object-cover rounded-full"
+              />
+          </div>
+
+          {/* Search input */}
+          <input
+            type="text"
+            className="input input-bordered rounded-md w-full px-2 py-1 h-5/6"
+            placeholder="Buscar usuários"
+            value={searchUsers}
+            onChange={(e) => setSearchUsers(e.target.value )}
+          />
         </div>
         {/* TODO: Online filter toggle */}
         <div className="mt-3 hidden lg:flex items-center gap-2">
@@ -38,11 +66,11 @@ const Sidebar = () => {
             />
             <span className="text-sm">Mostrar apenas online</span>
           </label>
-          <span className="text-xs text-zinc-500">({onlineUsers.length - 1} online)</span>
+          <span className="text-xs text-zinc-500">({onlineUsers.length -1} online)</span>
         </div>
       </div>
 
-      <div className="overflow-y-auto w-full py-3">
+      <div className="overflow-y-auto w-full ">
         {filteredUsers.map((user) => (
           <button
             key={user._id}
@@ -61,8 +89,8 @@ const Sidebar = () => {
               />
               {onlineUsers.includes(user._id) && (
                 <span
-                  className="absolute bottom-0 right-0 size-3 bg-green-500 
-                  rounded-full ring-2 ring-zinc-900"
+                  className="absolute bottom-0 right-0 size-2 bg-green-500 
+                  rounded-full ring-1 ring-zinc-900"
                 />
               )}
             </div>

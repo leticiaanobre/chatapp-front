@@ -1,8 +1,35 @@
-# React + Vite
+# Community Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time chat application that allows users to communicate seamlessly with real-time messaging and secure authentication.
 
-Currently, two official plugins are available:
+![Imagem do Projeto](./src//assets//Community.png)
+![Imagem do Projeto](./src//assets//Community2.png)
+![Imagem do Projeto](./src//assets//Community3.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Real-time Messaging**: Instant communication using Socket.IO.
+- **User Authentication**: Secure login and signup using JWT.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Cloudinary Integration**: Image uploads handled through Cloudinary.
+
+## Tech Stack
+
+### Frontend
+- **ReactJS**: Component-based user interface.
+- **Zustand**: State management.
+- **Axios**: API requests.
+- **Socket.IO Client**: Real-time communication.
+
+### Backend
+- **Node.js**: Backend runtime.
+- **Express.js**: Web framework.
+- **MongoDB**: Database for storing user and message data.
+- **Mongoose**: Object Data Modeling (ODM) library.
+- **Socket.IO**: Real-time communication.
+- **Cloudinary**: Image hosting.
+- **JWT**: Secure user authentication.
+
+## License
+
+This project is licensed under the MIT License.
